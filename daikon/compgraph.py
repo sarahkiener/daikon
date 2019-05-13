@@ -52,6 +52,7 @@ def define_computation_graph(source_vocab_size: int, target_vocab_size: int, bat
                                                                  dtype=tf.float32)
 
     with tf.variable_scope("Decoder"):
+        # Second layer added to decoder
         multi_dec = [tf.contrib.rnn.LSTMCell(C.HIDDEN_SIZE) for _ in range(2)]
         decoder_cell = tf.contrib.rnn.MultiRNNCell(multi_dec)
         # decoder_cell = tf.contrib.rnn.LSTMCell(C.HIDDEN_SIZE)
